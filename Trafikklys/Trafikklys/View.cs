@@ -10,7 +10,7 @@ namespace Trafikklys
     {
         public View(Start start, Exit exit)
         {
-        Console.WriteLine("Bilen kjørte fra " + start.name + "til " + exit.Name);
+        Console.WriteLine("Bilen kjørte fra " + start.Name + "til " + exit.Name);
         }
     }
 }

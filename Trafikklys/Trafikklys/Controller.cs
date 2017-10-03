@@ -12,11 +12,14 @@ namespace Trafikklys
         {
             var trafficLight = car.Exit.TrafficLight.trafficLights;
 
+
             if (trafficLight == true)
             {
                 car.Start.carList.RemoveAt(0);
 
                 car.Exit.CarCollection.Add(car);
+
+                View view = new View(car.Start, car.Exit);
             }
         }
     }
