@@ -10,7 +10,7 @@ namespace Trafikklys
     {
         public static void SendCarToExit(Car car)
         {
-            Start.carList.Remove(car);
+            Start.carList.RemoveAt(0);
             
         }
         

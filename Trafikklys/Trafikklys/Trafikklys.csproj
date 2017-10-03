@@ -46,6 +46,7 @@
     <Compile Include="Exit.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CarToExit.cs" />
     <Compile Include="Start.cs" />
     <Compile Include="TrafficLights.cs" />
   </ItemGroup>
