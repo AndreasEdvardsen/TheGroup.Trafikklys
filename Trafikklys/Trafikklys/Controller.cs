@@ -8,7 +8,7 @@ namespace Trafikklys
 {
     class Controller
     {
-        public static void SendCarToExit(Car car)
+        public void SendCarToExit(Car car)
         {
             var trafficLight = car.Exit.TrafficLight.trafficLights;
             
