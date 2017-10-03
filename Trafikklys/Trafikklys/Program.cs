@@ -10,13 +10,8 @@ namespace Trafikklys
     {
         static void Main(string[] args)
         {
-            //monkaS
-            //hello
-            //:thinking:
-            //bleh
-            //en Annen Fisk
-            //Fisk
-            //kake
+            MVP mvp = new MVP();
+            Console.ReadLine();
         }
     }
 }
