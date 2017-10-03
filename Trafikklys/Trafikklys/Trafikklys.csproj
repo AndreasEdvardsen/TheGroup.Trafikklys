@@ -49,7 +49,7 @@
     <Compile Include="MVP.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="CarToExit.cs" />
+    <Compile Include="Controller.cs" />
     <Compile Include="Start.cs" />
     <Compile Include="TrafficLights.cs" />
     <Compile Include="View.cs" />

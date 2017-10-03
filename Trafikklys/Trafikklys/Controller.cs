@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Trafikklys
 {
-    class CarToExit
+    class Controller
     {
         public static void SendCarToExit(Car car)
         {
-            if ()
+            if (car.Exit.TrafficLight.trafficLights == true)
             {
-                
+                car.Start.
             }
         }
     }
