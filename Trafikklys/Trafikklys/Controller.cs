@@ -20,6 +20,8 @@ namespace Trafikklys
                 car.Start.carList.RemoveAt(0);
 
                 car.Exit.CarCollection.Add(car);
+
+                
             }
         }
     }
