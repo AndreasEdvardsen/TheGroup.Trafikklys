@@ -10,9 +10,11 @@ namespace Trafikklys
     {
         MVP()
         { 
+            //Controller controller = new Controller();
             Crossroad crossroad = new Crossroad();
+            crossroad.Top.Exit.TrafficLight.trafficLights = true;
             var car = new Car(crossroad.Bottom.Entrance, crossroad.Top.Exit);
-            
+            //controller.SendCarToExit(car);
         }
     }
 }

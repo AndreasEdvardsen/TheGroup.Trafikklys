@@ -8,7 +8,14 @@ namespace Trafikklys
 {
     class CrossroadSide
     {
-        public Start Entrance = new Start();
-        public Exit Exit = new Exit();
+        public Start Start;
+        public Exit Exit;
+
+        public CrossroadSide(string side)
+        {
+            Start = new Start(side);
+            Exit = new Exit(side);
+        }
     }
 }
+

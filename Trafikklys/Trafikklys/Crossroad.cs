@@ -8,9 +8,9 @@ namespace Trafikklys
 {
     class Crossroad
     {
-        public CrossroadSide Top = new CrossroadSide();
-        public CrossroadSide Right = new CrossroadSide();
-        public CrossroadSide Bottom = new CrossroadSide();
-        public CrossroadSide Left = new CrossroadSide();
+        public CrossroadSide Top = new CrossroadSide("Top");
+        public CrossroadSide Right = new CrossroadSide("Right");
+        public CrossroadSide Bottom = new CrossroadSide("Bottom");
+        public CrossroadSide Left = new CrossroadSide("Left");
     }
 }

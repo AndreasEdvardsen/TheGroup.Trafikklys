@@ -11,5 +11,11 @@ namespace Trafikklys
     {
         public List<Car> CarCollection = new List<Car>();
         public TrafficLights TrafficLight = new TrafficLights();
+        public string Name;
+
+        public Exit(string side)
+        {
+            Name = side;
+        }
     }
 }
