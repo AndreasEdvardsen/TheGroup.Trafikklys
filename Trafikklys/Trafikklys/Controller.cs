@@ -11,8 +11,7 @@ namespace Trafikklys
         public void SendCarToExit(Car car)
         {
             var trafficLight = car.Exit.TrafficLight.trafficLights;
-
-
+            
             if (trafficLight == true)
             {
                 car.Start.carList.RemoveAt(0);
