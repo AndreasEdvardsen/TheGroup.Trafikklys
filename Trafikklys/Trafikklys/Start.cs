@@ -8,7 +8,9 @@ namespace Trafikklys
 {
     class Start
     {
-        public List<Car> carList = new List<Car>();
+        public static List<Car> carList = new List<Car>();
+        public string name;
+
     }
     
 }
