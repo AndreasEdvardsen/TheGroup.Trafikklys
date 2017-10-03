@@ -16,6 +16,7 @@ namespace Trafikklys
             //bleh
             //en Annen Fisk
             //Fisk
+            //kake
         }
     }
 }
