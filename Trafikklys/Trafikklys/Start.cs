@@ -8,6 +8,6 @@ namespace Trafikklys
 {
     class Start
     {
-        List<car> carList = new List<car>();
+        public List<car> carList = new List<car>();
     }
 }
