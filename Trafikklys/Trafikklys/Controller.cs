@@ -8,14 +8,10 @@ namespace Trafikklys
 {
     class Controller
     {
-
-
-
         public static void SendCarToExit(Car car)
         {
             var trafficLight = car.Exit.TrafficLight.trafficLights;
-
-
+            
             if (trafficLight == true)
             {
                 car.Start.carList.RemoveAt(0);
