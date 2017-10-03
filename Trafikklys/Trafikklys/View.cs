@@ -6,13 +6,11 @@ using System.Threading.Tasks;
 
 namespace Trafikklys
 {
-    class CarToExit
+    class View 
     {
-        public static void SendCarToExit(Car car)
+        public View(Start start, Exit exit)
         {
-            Start.carList.Remove(car);
-            
+        Console.WriteLine("Bilen kjørte fra " + start.name + "til " + exit.name);
         }
-        
     }
 }
