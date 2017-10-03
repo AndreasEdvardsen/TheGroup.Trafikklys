@@ -8,7 +8,7 @@ namespace Trafikklys
 {
     class View 
     {
-        View(Start start, Exit exit)
+        public View(Start start, Exit exit)
         {
         Console.WriteLine("Bilen kjørte fra " + start.name + "til " + exit.name);
         }
