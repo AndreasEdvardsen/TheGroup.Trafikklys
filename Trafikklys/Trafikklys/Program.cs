@@ -11,7 +11,8 @@ namespace Trafikklys
         static void Main(string[] args)
         {
             //monkaS
-
+            //hello
+            //:thinking:
             //bleh
         }
     }
