@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Trafikklys
 {
-    class CarToExit
+    class MVP
     {
-        public static void SendCarToExit(Car car)
-        {
-            Start.carList.RemoveAt(0);
+        MVP()
+        { 
+            Crossroad crossroad = new Crossroad();
+            var car = new Car(crossroad.Bottom.Entrance, crossroad.Top.Exit);
             
         }
-        
     }
 }

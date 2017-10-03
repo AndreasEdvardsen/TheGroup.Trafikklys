@@ -6,13 +6,9 @@ using System.Threading.Tasks;
 
 namespace Trafikklys
 {
-    class CarToExit
+    class CrossroadSide
     {
-        public static void SendCarToExit(Car car)
-        {
-            Start.carList.RemoveAt(0);
-            
-        }
-        
+        public Start Entrance = new Start();
+        public Exit Exit = new Exit();
     }
 }
