@@ -9,11 +9,11 @@ namespace Trafikklys
     class Start
     {
         public List<Car> carList = new List<Car>();
-        public string name;
+        public string Name;
 
         public Start(string side)
         {
-            name = side;
+            Name = side;
         }
     }
     
