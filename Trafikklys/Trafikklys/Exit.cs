@@ -10,6 +10,6 @@ namespace Trafikklys
     class Exit
     {
         public List<Car> CarCollection = new List<Car>();
-        public TrafficLight TrafficLight = new TrafficLight();
+        public TrafficLights TrafficLight = new TrafficLights();
     }
 }

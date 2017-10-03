@@ -9,15 +9,13 @@ namespace Trafikklys
 {
     class Car
     {
-        // public Start Start = new Start();
+        public Start Start = new Start();
         public Exit Exit = new Exit();
-
-        /*
+        
         public Car(Start start, Exit exit)
         {
             Start = start;
             Exit = exit;
         }
-        */
     }
 }
