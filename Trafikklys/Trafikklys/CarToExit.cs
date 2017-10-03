@@ -6,10 +6,13 @@ using System.Threading.Tasks;
 
 namespace Trafikklys
 {
-    class Start
+    class CarToExit
     {
-        public static List<Car> carList = new List<Car>();
+        public static void SendCarToExit(Car car)
+        {
+            Start.carList.Remove(car);
+            
+        }
         
     }
-    
 }
