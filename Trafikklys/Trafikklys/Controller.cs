@@ -18,10 +18,7 @@ namespace Trafikklys
             if (trafficLight == true)
             {
                 car.Start.carList.RemoveAt(0);
-
                 car.Exit.CarCollection.Add(car);
-
-                View view = new View(car.Start, car.Exit);
             }
         }
 
@@ -40,7 +37,6 @@ namespace Trafikklys
             {
                 exitPoint = sides[random.Next(0, 3)];
             }
-            
         }
 
         public CrossroadSide CheckBiggestQueue(Crossroad crossroad)
@@ -57,8 +53,9 @@ namespace Trafikklys
             return null;
         }
 
-        public void SetLights(CrossroadSide crossroadSide, Crossroad crossroad)
+        public void SetLights(Crossroad crossroad)
         {
+            var crossroadSide = CheckBiggestQueue(crossroad);
             List<Exit> exits = new List<Exit>
             {
                 crossroad.Top.Exit,
@@ -69,9 +66,8 @@ namespace Trafikklys
 
             foreach (var exit in exits)
             {
-                exit.TrafficLight.GreenLight = false;
+                exit.TrafficLight.GreenLight = true;
             }
-            crossroadSide.Exit.TrafficLight.GreenLight = true;
         }
     }
 }
