@@ -19,7 +19,6 @@ namespace Trafikklys
         public void SendCarToExit()
         {
             var side = CheckBiggestQueue();
-            var carAmount = 5;
 
             var car = side.Start.carList[0];
             var trafficLight = car.Exit.TrafficLight.GreenLight;
