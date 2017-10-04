@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Trafikklys
 {
@@ -13,12 +14,30 @@ namespace Trafikklys
 
         public void Show(Start start, Exit exit)
         {
+            Console.Clear();
             Console.WriteLine("Bilen kjørte fra " + start.Name + " til " + exit.Name);
 
-            Console.WriteLine("Det er " + crossroad.Top.Start.carList.Count + " biler i øverste felt");
-            Console.WriteLine("Det er " + crossroad.Right.Start.carList.Count + " biler i høyre felt");
-            Console.WriteLine("Det er " + crossroad.Bottom.Start.carList.Count + " biler i nederste felt");
-            Console.WriteLine("Det er " + crossroad.Left.Start.carList.Count + " biler i venstre felt");
+            Console.WriteLine("Top: ");
+            for (var indexTop = 0; indexTop < crossroad.Top.Start.carList.Count; indexTop++)
+            {
+                Console.Write("|");
+            }
+            Console.WriteLine("Right: ");
+            for (var indexTop = 0; indexTop < crossroad.Right.Start.carList.Count; indexTop++)
+            {
+                Console.Write("|");
+            }
+            Console.WriteLine("Bottom: ");
+            for (var indexTop = 0; indexTop < crossroad.Bottom.Start.carList.Count; indexTop++)
+            {
+                Console.Write("|");
+            }
+            Console.WriteLine("Left: ");
+            for (var indexTop = 0; indexTop < crossroad.Left.Start.carList.Count; indexTop++)
+            {
+                Console.Write("|");
+            }
+            Thread.Sleep(500);
         }
     }
 }
