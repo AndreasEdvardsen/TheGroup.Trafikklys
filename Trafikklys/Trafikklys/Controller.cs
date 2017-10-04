@@ -25,22 +25,45 @@ namespace Trafikklys
             }
         }
 
-        public void CreateCars(Car car, Start start, Exit exit, Crossroad crossroad)
+        public void CreateCars(Car car)
         {
-            var startPoint = car.Start.Name;
-            var exitPoint = car.Exit.Name;
+            var startPoint = car.Start;
+            var exitPoint = car.Exit;
 
-            string[] sides = new string[4] {crossroad.Top.ToString(), crossroad.Right.ToString(), crossroad.Bottom.ToString(), crossroad.Left.ToString()};
+            int carAmount = random.Next(0, 10);
 
-            startPoint = sides[random.Next(0, 3)];
-            exitPoint = sides[random.Next(0, 3)];
-
-            //hvis de er like, lag et nytt exitPoint
-            if (exitPoint == startPoint)
+            List<Start> startList = new List<Start>()
             {
-                exitPoint = sides[random.Next(0, 3)];
+                -crossroad.Top.Start,
+                -crossroad.Right.Start,
+                -crossroad.Bottom.Start,
+                -crossroad.Left.Start
+            };
+
+            List<Exit> exitList = new List<Exit>()
+            {
+                -crossroad.Top.Exit,
+                -crossroad.Right.Exit,
+                -crossroad.Bottom.Exit,
+                -crossroad.Left.Exit
+            };
+
+            for (int i = carAmount; i <= 0; i--)
+            {
+                startPoint = startList[random.Next(0, 3)];
+                exitPoint = exitList[random.Next(0, 3)];
+
+                //hvis de er like, lag et nytt exitPoint
+                if (exitPoint.Name == startPoint.Name)
+                {
+                    exitPoint = exitList[random.Next(0, 3)];
+                }
+                
+                car = new Car(startPoint, exitPoint);
+                
+                startPoint.carList.Add(car);
             }
-            
+
         }
 
         public CrossroadSide CheckBiggestQueue(Crossroad crossroad)
