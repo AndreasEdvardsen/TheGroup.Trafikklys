@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Trafikklys
@@ -59,7 +60,7 @@ namespace Trafikklys
                 _crossroad.Left.Exit
             };
 
-            for (int i = carAmount; i <= 0; i--)
+            for (int i = carAmount; i < 0; i--)
             {
                 var startPoint = startList[random.Next(0, 3)];
                 var exitPoint = exitList[random.Next(0, 3)];
@@ -109,6 +110,14 @@ namespace Trafikklys
             {
                 exit.TrafficLight.GreenLight = true;
             }
+
+            Thread.Sleep(3000);
+
+            foreach (var exit in exits)
+            {
+                exit.TrafficLight.GreenLight = false;
+            }
+
         }
     }
 }
