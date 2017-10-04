@@ -19,17 +19,27 @@ namespace Trafikklys
 
         public void SendCarToExit()
         {
+            View view = new View(_crossroad);
             var side = CheckBiggestQueue();
+            Car car;
+            bool trafficLight;
 
-            var car = side.Start.carList[0];
-            var trafficLight = car.Exit.TrafficLight.GreenLight;
-            while (trafficLight == true)
+            if (side.Start.carList.Count > 0)
             {
-                View view = new View(_crossroad);
+                car = side.Start.carList[0];
+                trafficLight = car.Exit.TrafficLight.GreenLight;
 
-                car.Start.carList.RemoveAt(0);
-                car.Exit.CarCollection.Add(car);
-                view.Show(car.Start, car.Exit);
+                while (trafficLight == true)
+                {
+                    if (side.Start.carList.Count > 0)
+                    {
+                        car.Start.carList.RemoveAt(0);
+                        car.Exit.CarCollection.Add(car);
+                        view.Show(car.Start, car.Exit);
+
+                    }
+                    trafficLight = car.Exit.TrafficLight.GreenLight;
+                }
             }
         }
 
@@ -109,7 +119,6 @@ namespace Trafikklys
             {
                 exit.TrafficLight.GreenLight = false;
             }
-
         }
     }
 }
