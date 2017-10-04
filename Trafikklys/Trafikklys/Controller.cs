@@ -37,10 +37,9 @@ namespace Trafikklys
 
         }
 
-        public void CreateCars(Car car)
+        public void CreateCars()
         {
-            var startPoint = car.Start;
-            var exitPoint = car.Exit;
+            
 
             int carAmount = random.Next(0, 10);
 
@@ -62,8 +61,8 @@ namespace Trafikklys
 
             for (int i = carAmount; i <= 0; i--)
             {
-                startPoint = startList[random.Next(0, 3)];
-                exitPoint = exitList[random.Next(0, 3)];
+                var startPoint = startList[random.Next(0, 3)];
+                var exitPoint = exitList[random.Next(0, 3)];
 
                 //hvis de er like, lag et nytt exitPoint
                 if (exitPoint.Name == startPoint.Name)
@@ -71,7 +70,7 @@ namespace Trafikklys
                     exitPoint = exitList[random.Next(0, 3)];
                 }
                 
-                car = new Car(startPoint, exitPoint);
+                var car = new Car(startPoint, exitPoint);
                 
                 startPoint.carList.Add(car);
             }
