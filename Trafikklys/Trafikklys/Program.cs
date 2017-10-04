@@ -10,6 +10,12 @@ namespace Trafikklys
     {
         static void Main(string[] args)
         {
+            SimLoop();
+            Console.ReadLine();
+        }
+
+        public static async void SimLoop()
+        {
             var simRunning = true;
             var LoopsToSimulate = 10;
             while (simRunning)
@@ -19,15 +25,15 @@ namespace Trafikklys
                 controller.CreateCars();
 
                 Task.Factory.StartNew(controller.SetLights);
-                Task.Factory.StartNew(controller.SendCarToExit);
-                 
+                await Task.Factory.StartNew(controller.SendCarToExit);
+                
                 if (LoopsToSimulate <= 0)
                 {
                     break;
                 }
                 LoopsToSimulate--;
             }
-            Console.ReadLine();
         }
     }
+    
 }
