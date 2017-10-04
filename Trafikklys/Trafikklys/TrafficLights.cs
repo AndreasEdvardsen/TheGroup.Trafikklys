@@ -8,6 +8,6 @@ namespace Trafikklys
 {
     class TrafficLights
     {
-        public bool trafficLights = false;
+        public bool GreenLight = false;
     }
 }

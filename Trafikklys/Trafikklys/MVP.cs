@@ -12,7 +12,7 @@ namespace Trafikklys
         { 
             Controller controller = new Controller();
             Crossroad crossroad = new Crossroad();
-            crossroad.Top.Exit.TrafficLight.trafficLights = true;
+            crossroad.Top.Exit.TrafficLight.GreenLight = true;
             var car = new Car(crossroad.Bottom.Start, crossroad.Top.Exit);
 
             controller.SendCarToExit(car);
