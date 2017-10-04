@@ -17,26 +17,30 @@ namespace Trafikklys
             Console.Clear();
             Console.WriteLine("Bilen kjørte fra " + start.Name + " til " + exit.Name);
 
-            Console.WriteLine("Top: ");
+            Console.Write("Top: ");
             for (var indexTop = 0; indexTop < crossroad.Top.Start.carList.Count; indexTop++)
             {
                 Console.Write("|");
             }
-            Console.WriteLine("Right: ");
+            Console.WriteLine();
+            Console.Write("Right: ");
             for (var indexTop = 0; indexTop < crossroad.Right.Start.carList.Count; indexTop++)
             {
                 Console.Write("|");
             }
-            Console.WriteLine("Bottom: ");
+            Console.WriteLine();
+            Console.Write("Bottom: ");
             for (var indexTop = 0; indexTop < crossroad.Bottom.Start.carList.Count; indexTop++)
             {
                 Console.Write("|");
             }
-            Console.WriteLine("Left: ");
+            Console.WriteLine();
+            Console.Write("Left: ");
             for (var indexTop = 0; indexTop < crossroad.Left.Start.carList.Count; indexTop++)
             {
                 Console.Write("|");
             }
+            Console.WriteLine();
             Thread.Sleep(500);
         }
     }
