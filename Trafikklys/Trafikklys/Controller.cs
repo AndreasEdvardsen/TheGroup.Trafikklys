@@ -11,18 +11,24 @@ namespace Trafikklys
 
         Random random = new Random();
 
-        public void SendCarToExit(Car car)
+        public void SendCarToExit()
         {
-            var trafficLight = car.Exit.TrafficLight.GreenLight;
+            var side = CheckBiggestQueue();
+            var carAmount = 5;
 
-            if (trafficLight == true)
+            while (carAmount > 0)
             {
-                car.Start.carList.RemoveAt(0);
+                var car = side.Start.carList[0];
+                var trafficLight = car.Exit.TrafficLight.GreenLight;
 
-                car.Exit.CarCollection.Add(car);
-
-                View view = new View(car.Start, car.Exit);
+                if (trafficLight == true)
+                {
+                    car.Start.carList.RemoveAt(0);
+                    car.Exit.CarCollection.Add(car);
+                }
+                carAmount--;
             }
+
         }
 
         public void CreateCars(Car car)
@@ -80,8 +86,9 @@ namespace Trafikklys
             return null;
         }
 
-        public void SetLights(CrossroadSide crossroadSide, Crossroad crossroad)
+        public void SetLights(Crossroad crossroad)
         {
+            var crossroadSide = CheckBiggestQueue(crossroad);
             List<Exit> exits = new List<Exit>
             {
                 crossroad.Top.Exit,
@@ -92,9 +99,8 @@ namespace Trafikklys
 
             foreach (var exit in exits)
             {
-                exit.TrafficLight.GreenLight = false;
+                exit.TrafficLight.GreenLight = true;
             }
-            crossroadSide.Exit.TrafficLight.GreenLight = true;
         }
     }
 }
