@@ -46,18 +46,18 @@ namespace Trafikklys
 
             List<Start> startList = new List<Start>()
             {
-                -crossroad.Top.Start,
-                -crossroad.Right.Start,
-                -crossroad.Bottom.Start,
-                -crossroad.Left.Start
+                _crossroad.Top.Start,
+                _crossroad.Right.Start,
+                _crossroad.Bottom.Start,
+                _crossroad.Left.Start
             };
 
             List<Exit> exitList = new List<Exit>()
             {
-                -crossroad.Top.Exit,
-                -crossroad.Right.Exit,
-                -crossroad.Bottom.Exit,
-                -crossroad.Left.Exit
+                _crossroad.Top.Exit,
+                _crossroad.Right.Exit,
+                _crossroad.Bottom.Exit,
+                _crossroad.Left.Exit
             };
 
             for (int i = carAmount; i <= 0; i--)
