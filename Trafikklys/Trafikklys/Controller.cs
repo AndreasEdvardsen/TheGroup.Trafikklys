@@ -11,15 +11,24 @@ namespace Trafikklys
 
         Random random = new Random();
 
-        public void SendCarToExit(Car car)
+        public void SendCarToExit()
         {
-            var trafficLight = car.Exit.TrafficLight.GreenLight;
+            var side = CheckBiggestQueue();
+            var carAmount = 5;
 
-            if (trafficLight == true)
+            while (carAmount > 0)
             {
-                car.Start.carList.RemoveAt(0);
-                car.Exit.CarCollection.Add(car);
+                var car = side.Start.carList[0];
+                var trafficLight = car.Exit.TrafficLight.GreenLight;
+
+                if (trafficLight == true)
+                {
+                    car.Start.carList.RemoveAt(0);
+                    car.Exit.CarCollection.Add(car);
+                }
+                carAmount--;
             }
+
         }
 
         public void CreateCars(Car car, Start start, Exit exit, Crossroad crossroad)
