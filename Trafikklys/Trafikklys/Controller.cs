@@ -65,8 +65,8 @@ namespace Trafikklys
 
             for (int i = carAmount; i > 0; i--)
             {
-                var startPoint = startList[random.Next(0, 3)];
-                var exitPoint = exitList[random.Next(0, 3)];
+                var startPoint = startList[random.Next(0, 4)];
+                var exitPoint = exitList[random.Next(0, 4)];
 
                 //hvis de er like, lag et nytt exitPoint
                 if (exitPoint.Name == startPoint.Name)
