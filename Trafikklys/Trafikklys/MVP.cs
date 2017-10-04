@@ -8,6 +8,7 @@ namespace Trafikklys
 {
     class MVP
     {
+        /*
         public MVP()
         { 
             Controller controller = new Controller();
@@ -17,5 +18,6 @@ namespace Trafikklys
 
             controller.SendCarToExit(car);
         }
+        */
     }
 }
