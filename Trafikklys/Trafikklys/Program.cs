@@ -10,7 +10,22 @@ namespace Trafikklys
     {
         static void Main(string[] args)
         {
-            MVP mvp = new MVP();
+            var simRunning = true;
+            var LoopsToSimulate = 10;
+            while (simRunning)
+            {
+                Crossroad crossroad = new Crossroad();
+                Controller controller = new Controller();
+                controller.CreateCars(crossroad);
+                controller.SetLights(crossroad);
+                controller.SendCarToExit();
+
+                if (LoopsToSimulate <= 0)
+                {
+                    break;
+                }
+                LoopsToSimulate--;
+            }
             Console.ReadLine();
         }
     }

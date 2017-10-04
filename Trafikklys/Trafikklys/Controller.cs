@@ -10,6 +10,12 @@ namespace Trafikklys
     {
 
         Random random = new Random();
+        private Crossroad _crossroad;
+
+        Controller(Crossroad crossroad)
+        {
+            _crossroad = crossroad;
+        }
 
         public void SendCarToExit(Car car)
         {
@@ -39,29 +45,32 @@ namespace Trafikklys
             }
         }
 
-        public CrossroadSide CheckBiggestQueue(Crossroad crossroad)
+        public CrossroadSide CheckBiggestQueue()
         {
-            var topRoad = crossroad.Top.Start.carList.Count;
-            var rightRoad = crossroad.Right.Start.carList.Count;
-            var bottomRoad = crossroad.Bottom.Start.carList.Count;
-            var leftRoad = crossroad.Left.Start.carList.Count;
+            var topRoad = _crossroad.Top.Start.carList.Count;
+            var rightRoad = _crossroad.Right.Start.carList.Count;
+            var bottomRoad = _crossroad.Bottom.Start.carList.Count;
+            var leftRoad = _crossroad.Left.Start.carList.Count;
 
-            if (topRoad > rightRoad && topRoad > bottomRoad && topRoad > leftRoad) return crossroad.Top;
-            if (rightRoad > bottomRoad && rightRoad > leftRoad && rightRoad > topRoad) return crossroad.Right;
-            if (bottomRoad > leftRoad && bottomRoad > topRoad && bottomRoad > rightRoad) return crossroad.Bottom;
-            if (leftRoad > topRoad && leftRoad > rightRoad && leftRoad > bottomRoad) return crossroad.Left;
+            if (topRoad > rightRoad && topRoad > bottomRoad && topRoad > leftRoad) return _crossroad.Top;
+            if (rightRoad > bottomRoad && rightRoad > leftRoad && rightRoad > topRoad) return _crossroad.Right;
+            if (bottomRoad > leftRoad && bottomRoad > topRoad && bottomRoad > rightRoad) return _crossroad.Bottom;
+            if (leftRoad > topRoad && leftRoad > rightRoad && leftRoad > bottomRoad) return _crossroad.Left;
             return null;
         }
 
-        public void SetLights(Crossroad crossroad)
+        public void SetLights()
         {
-            var crossroadSide = CheckBiggestQueue(crossroad);
+            //Henter ut den køen med flest biler.
+            var crossroadSide = CheckBiggestQueue();
+
+            //Lager en liste med alle exits
             List<Exit> exits = new List<Exit>
             {
-                crossroad.Top.Exit,
-                crossroad.Right.Exit,
-                crossroad.Bottom.Exit,
-                crossroad.Left.Exit
+                _crossroad.Top.Exit,
+                _crossroad.Right.Exit,
+                _crossroad.Bottom.Exit,
+                _crossroad.Left.Exit
             };
 
             foreach (var exit in exits)
