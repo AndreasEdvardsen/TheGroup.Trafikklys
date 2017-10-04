@@ -8,11 +8,10 @@ namespace Trafikklys
 {
     class Controller
     {
-
         Random random = new Random();
         private Crossroad _crossroad;
 
-        Controller(Crossroad crossroad)
+        public Controller(Crossroad crossroad)
         {
             _crossroad = crossroad;
         }
@@ -22,25 +21,20 @@ namespace Trafikklys
             var side = CheckBiggestQueue();
             var carAmount = 5;
 
-            while (carAmount > 0)
+            var car = side.Start.carList[0];
+            var trafficLight = car.Exit.TrafficLight.GreenLight;
+            while (trafficLight == true)
             {
-                var car = side.Start.carList[0];
-                var trafficLight = car.Exit.TrafficLight.GreenLight;
+                View view = new View(_crossroad);
 
-                if (trafficLight == true)
-                {
-                    car.Start.carList.RemoveAt(0);
-                    car.Exit.CarCollection.Add(car);
-                }
-                carAmount--;
+                car.Start.carList.RemoveAt(0);
+                car.Exit.CarCollection.Add(car);
+                view.Show(car.Start, car.Exit);
             }
-
         }
 
         public void CreateCars()
         {
-            
-
             int carAmount = random.Next(0, 10);
 
             List<Start> startList = new List<Start>()
@@ -59,7 +53,7 @@ namespace Trafikklys
                 _crossroad.Left.Exit
             };
 
-            for (int i = carAmount; i <= 0; i--)
+            for (int i = carAmount; i > 0; i--)
             {
                 var startPoint = startList[random.Next(0, 3)];
                 var exitPoint = exitList[random.Next(0, 3)];
@@ -69,12 +63,11 @@ namespace Trafikklys
                 {
                     exitPoint = exitList[random.Next(0, 3)];
                 }
-                
+
                 var car = new Car(startPoint, exitPoint);
-                
+
                 startPoint.carList.Add(car);
             }
-
         }
 
         public CrossroadSide CheckBiggestQueue()
@@ -88,7 +81,7 @@ namespace Trafikklys
             if (rightRoad > bottomRoad && rightRoad > leftRoad && rightRoad > topRoad) return _crossroad.Right;
             if (bottomRoad > leftRoad && bottomRoad > topRoad && bottomRoad > rightRoad) return _crossroad.Bottom;
             if (leftRoad > topRoad && leftRoad > rightRoad && leftRoad > bottomRoad) return _crossroad.Left;
-            return null;
+            return _crossroad.Top;
         }
 
         public void SetLights()
