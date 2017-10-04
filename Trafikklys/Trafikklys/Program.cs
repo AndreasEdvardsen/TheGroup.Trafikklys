@@ -17,9 +17,10 @@ namespace Trafikklys
                 Crossroad crossroad = new Crossroad();
                 Controller controller = new Controller(crossroad);
                 controller.CreateCars();
-                controller.SetLights();
-                controller.SendCarToExit();
 
+                Task.Factory.StartNew(controller.SetLights);
+                Task.Factory.StartNew(controller.SendCarToExit);
+                 
                 if (LoopsToSimulate <= 0)
                 {
                     break;

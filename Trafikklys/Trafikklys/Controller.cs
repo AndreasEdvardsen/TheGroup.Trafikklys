@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Trafikklys
@@ -19,7 +20,6 @@ namespace Trafikklys
         public void SendCarToExit()
         {
             var side = CheckBiggestQueue();
-            var carAmount = 5;
 
             var car = side.Start.carList[0];
             var trafficLight = car.Exit.TrafficLight.GreenLight;
@@ -102,6 +102,14 @@ namespace Trafikklys
             {
                 exit.TrafficLight.GreenLight = true;
             }
+
+            Thread.Sleep(3000);
+
+            foreach (var exit in exits)
+            {
+                exit.TrafficLight.GreenLight = false;
+            }
+
         }
     }
 }
