@@ -24,26 +24,27 @@ namespace Trafikklys
                 Console.WriteLine("Bilen kjørte fra " + car2.Start.Name + " til " + car2.Exit.Name);
             }
 
-            Console.Write("Top: ");
+
+            Console.Write("Top lane: ");
             for (var indexTop = 0; indexTop < crossroad.Top.Start.carList.Count; indexTop++)
             {
                 Console.Write("|");
             }
             Console.WriteLine();
-            Console.Write("Right: ");
-            for (var indexTop = 0; indexTop < crossroad.Right.Start.carList.Count; indexTop++)
+            Console.Write("Right lane: ");
+            for (var indexRight = 0; indexRight < crossroad.Right.Start.carList.Count; indexRight++)
             {
                 Console.Write("|");
             }
             Console.WriteLine();
-            Console.Write("Bottom: ");
-            for (var indexTop = 0; indexTop < crossroad.Bottom.Start.carList.Count; indexTop++)
+            Console.Write("Bottom lane: ");
+            for (var indexBottom = 0; indexBottom < crossroad.Bottom.Start.carList.Count; indexBottom++)
             {
                 Console.Write("|");
             }
             Console.WriteLine();
-            Console.Write("Left: ");
-            for (var indexTop = 0; indexTop < crossroad.Left.Start.carList.Count; indexTop++)
+            Console.Write("Left lane: ");
+            for (var indexLeft = 0; indexLeft < crossroad.Left.Start.carList.Count; indexLeft++)
             {
                 Console.Write("|");
             }
