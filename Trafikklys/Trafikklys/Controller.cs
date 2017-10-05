@@ -21,23 +21,19 @@ namespace Trafikklys
         {
             View view = new View(_crossroad);
             var side = CheckBiggestQueue();
-            Car car;
-            bool trafficLight;
 
             if (side.Start.carList.Count > 0)
             {
-                car = side.Start.carList[0];
-                trafficLight = car.Exit.TrafficLight.GreenLight;
+                var car = side.Start.carList[0];
+                var trafficLight = car.Exit.TrafficLight.GreenLight;
 
                 while (trafficLight == true)
                 {
-                    if (side.Start.carList.Count > 0)
-                    {
-                        car.Start.carList.RemoveAt(0);
-                        car.Exit.CarCollection.Add(car);
-                        view.Show(car.Start, car.Exit);
-
-                    }
+                    if (side.Start.carList.Count == 0) break;
+                    car = side.Start.carList[0];
+                    car.Start.carList.RemoveAt(0);
+                    car.Exit.CarCollection.Add(car);
+                    view.Show(car.Start, car.Exit);
                     trafficLight = car.Exit.TrafficLight.GreenLight;
                 }
             }
@@ -69,9 +65,9 @@ namespace Trafikklys
                 var exitPoint = exitList[random.Next(0, 4)];
 
                 //hvis de er like, lag et nytt exitPoint
-                if (exitPoint.Name == startPoint.Name)
+                while (exitPoint.Name == startPoint.Name)
                 {
-                    exitPoint = exitList[random.Next(0, 3)];
+                    exitPoint = exitList[random.Next(0, 4)];
                 }
 
                 var car = new Car(startPoint, exitPoint);
@@ -108,12 +104,13 @@ namespace Trafikklys
                 _crossroad.Left.Exit
             };
 
+            //Setter Lys til grønt så etter en delay til rødt
             foreach (var exit in exits)
             {
                 exit.TrafficLight.GreenLight = true;
             }
 
-            Thread.Sleep(3000);
+            Thread.Sleep(4000);
 
             foreach (var exit in exits)
             {
