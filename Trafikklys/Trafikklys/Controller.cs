@@ -29,13 +29,11 @@ namespace Trafikklys
 
                 while (trafficLight == true)
                 {
-                    if (side.Start.carList.Count > 0)
-                    {
-                        car.Start.carList.RemoveAt(0);
-                        car.Exit.CarCollection.Add(car);
-                        view.Show(car.Start, car.Exit);
-
-                    }
+                    if (side.Start.carList.Count == 0) break;
+                    car = side.Start.carList[0];
+                    car.Start.carList.RemoveAt(0);
+                    car.Exit.CarCollection.Add(car);
+                    view.Show(car.Start, car.Exit);
                     trafficLight = car.Exit.TrafficLight.GreenLight;
                 }
             }
@@ -106,12 +104,13 @@ namespace Trafikklys
                 _crossroad.Left.Exit
             };
 
+            //Setter Lys til grønt så etter en delay til rødt
             foreach (var exit in exits)
             {
                 exit.TrafficLight.GreenLight = true;
             }
 
-            Thread.Sleep(3000);
+            Thread.Sleep(4000);
 
             foreach (var exit in exits)
             {
