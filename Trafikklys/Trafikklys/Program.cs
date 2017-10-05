@@ -22,12 +22,15 @@ namespace Trafikklys
             {
                 Crossroad crossroad = new Crossroad();
                 Controller controller = new Controller(crossroad);
-                controller.CreateCars();
 
+                //Create cars
+                controller.CreateCars();
+                //Set lights
                 Task.Factory.StartNew(controller.SetLights);
+                //Sends cars
                 await Task.Factory.StartNew(controller.SendCarToExit);
                 
-                if (LoopsToSimulate <= 0)
+                if (LoopsToSimulate == 0)
                 {
                     break;
                 }

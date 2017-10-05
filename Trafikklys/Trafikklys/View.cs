@@ -12,10 +12,17 @@ namespace Trafikklys
             this.crossroad = crossroad;
         }
 
-        public void Show(Start start, Exit exit)
+        public void Show(Car car1, Car car2)
         {
             Console.Clear();
-            Console.WriteLine("Bilen kjørte fra " + start.Name + " til " + exit.Name);
+            if (car1 != null)
+            {
+                Console.WriteLine("Bilen kjørte fra " + car1.Start.Name + " til " + car1.Exit.Name);
+            }
+            if (car2 != null)
+            {
+                Console.WriteLine("Bilen kjørte fra " + car2.Start.Name + " til " + car2.Exit.Name);
+            }
 
             Console.Write("Top: ");
             for (var indexTop = 0; indexTop < crossroad.Top.Start.carList.Count; indexTop++)

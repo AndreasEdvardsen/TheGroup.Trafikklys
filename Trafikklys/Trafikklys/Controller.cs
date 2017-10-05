@@ -19,29 +19,41 @@ namespace Trafikklys
 
         public void SendCarToExit()
         {
-            View view = new View(_crossroad);
+            var view = new View(_crossroad);
             var side = CheckBiggestQueue();
+            CrossroadSide otherSide = null;
 
-            if (side.Start.carList.Count > 0)
+            if (side == _crossroad.Top) otherSide = _crossroad.Right;
+            if (side == _crossroad.Right) otherSide = _crossroad.Bottom;
+            if (side == _crossroad.Bottom) otherSide = _crossroad.Left;
+            if (side == _crossroad.Left) otherSide = _crossroad.Top;
+
+            while (side.Exit.TrafficLight.GreenLight)
             {
-                var car = side.Start.carList[0];
-                var trafficLight = car.Exit.TrafficLight.GreenLight;
-
-                while (trafficLight == true)
+                Car car1 = null;
+                Car car2 = null;
+                if (side.Start.carList.Count > 0)
                 {
-                    if (side.Start.carList.Count == 0) break;
-                    car = side.Start.carList[0];
+                    var car = side.Start.carList[0];
+                    car1 = car;
                     car.Start.carList.RemoveAt(0);
                     car.Exit.CarCollection.Add(car);
-                    view.Show(car.Start, car.Exit);
-                    trafficLight = car.Exit.TrafficLight.GreenLight;
                 }
+                if (otherSide.Start.carList.Count > 0)
+                {
+                    var car = otherSide.Start.carList[0];
+                    car2 = car;
+                    car.Start.carList.RemoveAt(0);
+                    car.Exit.CarCollection.Add(car);
+                }
+
+                view.Show(car1, car2);
             }
         }
 
         public void CreateCars()
         {
-            int carAmount = random.Next(0, 10);
+            int carAmount = random.Next(1, 10);
 
             List<Start> startList = new List<Start>()
             {
