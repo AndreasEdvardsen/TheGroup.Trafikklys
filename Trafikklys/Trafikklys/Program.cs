@@ -18,6 +18,8 @@ namespace Trafikklys
         {
             var simRunning = true;
             var LoopsToSimulate = 10;
+
+            //Om programmet skal kjøre
             while (simRunning)
             {
                 Crossroad crossroad = new Crossroad();

@@ -12,7 +12,7 @@ namespace Trafikklys
             this.crossroad = crossroad;
         }
 
-        public void Show(Car car1, Car car2)
+        public void Show(Car car1, Car car2, CrossroadSide side)
         {
             Console.Clear();
             if (car1 != null)
@@ -24,6 +24,9 @@ namespace Trafikklys
                 Console.WriteLine("Bilen kjørte fra " + car2.Start.Name + " til " + car2.Exit.Name);
             }
 
+            
+            Console.WriteLine("\r\nDet er grønt lys for: " + side.Start.Name + "\r\n");
+            
 
             Console.Write("Top lane: ");
             for (var indexTop = 0; indexTop < crossroad.Top.Start.carList.Count; indexTop++)

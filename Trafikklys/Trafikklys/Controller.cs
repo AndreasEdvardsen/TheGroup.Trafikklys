@@ -17,6 +17,7 @@ namespace Trafikklys
             _crossroad = crossroad;
         }
 
+        //Flytter biler fra start til slutt
         public void SendCarToExit()
         {
             var view = new View(_crossroad);
@@ -42,19 +43,21 @@ namespace Trafikklys
                 if (otherSide.Start.carList.Count > 0)
                 {
                     var car = otherSide.Start.carList[0];
-                    car2 = car;
-                    car.Start.carList.RemoveAt(0);
-                    car.Exit.CarCollection.Add(car);
+                    if (car.Exit == side.Exit)
+                    {
+                        car2 = car;
+                        car.Start.carList.RemoveAt(0);
+                        car.Exit.CarCollection.Add(car);
+                    }
                 }
-
-                view.Show(car1, car2);
+                view.Show(car1, car2, side);
             }
         }
 
+        //Lager tilfeldig mengde biler, med tilfeldig start/slutt.
         public void CreateCars()
         {
             int carAmount = random.Next(1, 10);
-
             List<Start> startList = new List<Start>()
             {
                 _crossroad.Top.Start,
@@ -88,6 +91,7 @@ namespace Trafikklys
             }
         }
 
+        //Returnerer størst kø.
         public CrossroadSide CheckBiggestQueue()
         {
             var topRoad = _crossroad.Top.Start.carList.Count;
