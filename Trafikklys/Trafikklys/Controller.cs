@@ -21,13 +21,11 @@ namespace Trafikklys
         {
             View view = new View(_crossroad);
             var side = CheckBiggestQueue();
-            Car car;
-            bool trafficLight;
 
             if (side.Start.carList.Count > 0)
             {
-                car = side.Start.carList[0];
-                trafficLight = car.Exit.TrafficLight.GreenLight;
+                var car = side.Start.carList[0];
+                var trafficLight = car.Exit.TrafficLight.GreenLight;
 
                 while (trafficLight == true)
                 {
