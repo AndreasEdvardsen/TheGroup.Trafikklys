@@ -28,25 +28,25 @@ namespace Trafikklys
             Console.WriteLine("\r\nDet er grønt lys for: " + side.Start.Name + "\r\n");
             
 
-            Console.Write("Top lane: ");
+            Console.Write("Øverste kjørefelt: ");
             for (var indexTop = 0; indexTop < crossroad.Top.Start.carList.Count; indexTop++)
             {
                 Console.Write("|");
             }
             Console.WriteLine();
-            Console.Write("Right lane: ");
+            Console.Write("Høyre kjørefelt: ");
             for (var indexRight = 0; indexRight < crossroad.Right.Start.carList.Count; indexRight++)
             {
                 Console.Write("|");
             }
             Console.WriteLine();
-            Console.Write("Bottom lane: ");
+            Console.Write("Nederste kjørefelt: ");
             for (var indexBottom = 0; indexBottom < crossroad.Bottom.Start.carList.Count; indexBottom++)
             {
                 Console.Write("|");
             }
             Console.WriteLine();
-            Console.Write("Left lane: ");
+            Console.Write("Venstre kjørefelt: ");
             for (var indexLeft = 0; indexLeft < crossroad.Left.Start.carList.Count; indexLeft++)
             {
                 Console.Write("|");
