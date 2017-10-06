@@ -17,36 +17,36 @@ namespace Trafikklys
             Console.Clear();
             if (car1 != null)
             {
-                Console.WriteLine("Bilen kjørte fra " + car1.Start.Name + " til " + car1.Exit.Name);
+                Console.WriteLine("The car came from " + car1.Start.Name + " and went to " + car1.Exit.Name);
             }
             if (car2 != null)
             {
-                Console.WriteLine("Bilen kjørte fra " + car2.Start.Name + " til " + car2.Exit.Name);
+                Console.WriteLine("The car came from " + car2.Start.Name + " and went to " + car2.Exit.Name);
             }
 
             
-            Console.WriteLine("\r\nDet er grønt lys for: " + side.Start.Name + "\r\n");
+            Console.WriteLine("\r\nIt's green for: " + side.Start.Name + "\r\n");
             
 
-            Console.Write("Øverste kjørefelt: ");
+            Console.Write("Top lane: ");
             for (var indexTop = 0; indexTop < crossroad.Top.Start.carList.Count; indexTop++)
             {
                 Console.Write("|");
             }
             Console.WriteLine();
-            Console.Write("Høyre kjørefelt: ");
+            Console.Write("Right lane: ");
             for (var indexRight = 0; indexRight < crossroad.Right.Start.carList.Count; indexRight++)
             {
                 Console.Write("|");
             }
             Console.WriteLine();
-            Console.Write("Nederste kjørefelt: ");
+            Console.Write("Bottom lane: ");
             for (var indexBottom = 0; indexBottom < crossroad.Bottom.Start.carList.Count; indexBottom++)
             {
                 Console.Write("|");
             }
             Console.WriteLine();
-            Console.Write("Venstre kjørefelt: ");
+            Console.Write("Left lane: ");
             for (var indexLeft = 0; indexLeft < crossroad.Left.Start.carList.Count; indexLeft++)
             {
                 Console.Write("|");
